@@ -44,4 +44,4 @@ func movement() -> void:
 	movement = forward_movement + sideways_movement
 	movement = movement.normalized()
 	
-	move_and_slide(movement * _move_speed)
+	movement = move_and_slide(movement * _move_speed)
