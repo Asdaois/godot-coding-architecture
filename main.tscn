@@ -15,6 +15,9 @@ radius = 0.33
 radius = 0.33
 
 [node name="Main" type="Spatial"]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Ground" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
@@ -26,14 +29,14 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="Player" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.28017 )
+transform = Transform( 0.984631, 0, -0.174645, 0, 1, 0, 0.174645, 0, 0.984631, -1.0095, 1, 1.09719 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+transform = Transform( -0.137583, 0.99049, 4.32957e-08, 0, -4.37114e-08, 1, 0.99049, 0.137583, 6.01394e-09, 0, 0, 0 )
 shape = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Player"]
