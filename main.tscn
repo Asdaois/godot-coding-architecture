@@ -1,29 +1,30 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
-[ext_resource path="res://fantasy-town/stallRed.glb" type="PackedScene" id=2]
-[ext_resource path="res://blocky-characters/Skins/Advanced/skin_womanAlternative.png" type="Texture" id=3]
-[ext_resource path="res://food/chocolate.glb" type="PackedScene" id=4]
-[ext_resource path="res://blocky-characters/Models/Non-rigged/glTF/advancedCharacter.gltf" type="PackedScene" id=5]
-[ext_resource path="res://food/bag.glb" type="PackedScene" id=6]
-[ext_resource path="res://food/apple.glb" type="PackedScene" id=7]
-[ext_resource path="res://food/bowl.glb" type="PackedScene" id=8]
-[ext_resource path="res://food/beet.glb" type="PackedScene" id=9]
-[ext_resource path="res://food/broccoli.glb" type="PackedScene" id=10]
-[ext_resource path="res://food/burgerCheeseDouble.glb" type="PackedScene" id=11]
-[ext_resource path="res://blocky-characters/Faces/face_womanAlternative.png" type="Texture" id=12]
-[ext_resource path="res://fonts/PoetsenOne-Regular.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Assets/fantasy-town/stallRed.glb" type="PackedScene" id=2]
+[ext_resource path="res://Assets/blocky-characters/Skins/Advanced/skin_womanAlternative.png" type="Texture" id=3]
+[ext_resource path="res://Assets/food/chocolate.glb" type="PackedScene" id=4]
+[ext_resource path="res://Assets/blocky-characters/Models/Non-rigged/glTF/advancedCharacter.gltf" type="PackedScene" id=5]
+[ext_resource path="res://Assets/food/bag.glb" type="PackedScene" id=6]
+[ext_resource path="res://Assets/food/apple.glb" type="PackedScene" id=7]
+[ext_resource path="res://Assets/food/bowl.glb" type="PackedScene" id=8]
+[ext_resource path="res://Assets/food/beet.glb" type="PackedScene" id=9]
+[ext_resource path="res://Assets/food/broccoli.glb" type="PackedScene" id=10]
+[ext_resource path="res://Assets/food/burgerCheeseDouble.glb" type="PackedScene" id=11]
+[ext_resource path="res://dialogues/intro.tres" type="Resource" id=12]
+[ext_resource path="res://Assets/fonts/PoetsenOne-Regular.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://dialogue_manager.gd" type="Script" id=14]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 10, 10 )
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=2]
 radius = 0.33
 
-[sub_resource type="CapsuleMesh" id=4]
+[sub_resource type="CapsuleMesh" id=3]
 radius = 0.33
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=4]
 size = 22
 font_data = ExtResource( 13 )
 
@@ -48,11 +49,11 @@ __meta__ = {
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
 transform = Transform( -0.137583, 0.99049, 4.32957e-08, 0, -4.37114e-08, 1, 0.99049, 0.137583, 6.01394e-09, 0, 0, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Player"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 4 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Camera" type="Camera" parent="Player"]
@@ -77,16 +78,19 @@ __meta__ = {
 [node name="DialogUI" type="Control" parent="CanvasLayer"]
 anchor_top = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+_dialog_text = NodePath("ColorRect/DialogText")
+_avatar = NodePath("Avatar")
+_current_dialogue = ExtResource( 12 )
 
 [node name="Avatar" type="TextureRect" parent="CanvasLayer/DialogUI"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -128.0
 margin_right = 128.0
-texture = ExtResource( 12 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -97,6 +101,9 @@ margin_left = 128.0
 margin_top = -90.0
 margin_right = 728.0
 margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DialogText" type="Label" parent="CanvasLayer/DialogUI/ColorRect"]
 anchor_right = 1.0
@@ -105,10 +112,13 @@ margin_left = 12.0
 margin_top = 12.0
 margin_right = -12.0
 margin_bottom = -12.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "This is a sample dialog"
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="stallRed2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 2.25, 0, 0, 0, 2.25, 0, 0, 0, 2.25, 4, 0, 1.5 )

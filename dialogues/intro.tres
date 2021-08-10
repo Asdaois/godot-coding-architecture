@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://dialogues/dialogue.gd" type="Script" id=1]
+[ext_resource path="res://Assets/blocky-characters/Faces/face_womanAlternative.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+avatar_texture = ExtResource( 2 )
+dialog_slides = [ "Welcome to the bazzar!", "I hope you are hungry, there is a lot of food, the first is free", "just make sure to choose the right food", "he he he he" ]
