@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+=======
+# Plugin Specific ignores
+default_env.tres
+icon.png
+icon.png.import
+project.godot
+scn/
+override.cfg
+>>>>>>> 5c75df5 (Initialize)
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+
+# Mono-specific ignores
+.mono/
+data_*/
