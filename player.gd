@@ -1,4 +1,3 @@
-# class_name
 extends KinematicBody
 
 export var _mouse_sensitivy := 0.10
